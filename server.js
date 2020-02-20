@@ -44,17 +44,17 @@ app.get("/api/workouts/range", (req, res) =>{
 
 // exercise.html
 app.get("/exercise", (req, res) => {
-  res.sendFile(path.join(__dirname + "./public/exercise.html"));
+  res.sendFile(path.join(__dirname + "/public/exercise.html"));
 });
 
 // index.html
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "./public/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 // stats.html
 app.get("/stats", (req, res) => {
-  res.sendFile(path.join(__dirname + "./public/stats.html"));
+  res.sendFile(path.join(__dirname + "/public/stats.html"));
 });
 
 app.listen(PORT, () => {
