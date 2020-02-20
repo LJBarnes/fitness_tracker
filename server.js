@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 
@@ -19,13 +20,22 @@ mongoose.connect("mongodb://localhost/workout", { useNewUrlParser: true, useFind
 
 // API ROUTES
 
-// create workout database
-
 // create workout (app.post)
+app.post("/api/workouts", ({body}, res) => {
+  db.create(body)
+  .then(workouts => res.json(workouts))
+  }); 
 
 // get workouts in range (app.get)
+app.get("/api/workouts/range", (req, res) =>{
+  db.find()
+  .then(workouts => res.json(workouts))
+  .catch(err=> res.json(err))
+});
+
 
 // add exercise (app.put)
+
 
 // get last workout (app.get)
 
@@ -33,10 +43,19 @@ mongoose.connect("mongodb://localhost/workout", { useNewUrlParser: true, useFind
 // HTML ROUTES
 
 // exercise.html
+app.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname + "./public/exercise.html"));
+});
 
 // index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "./public/index.html"));
+});
 
 // stats.html
+app.get("/stats", (req, res) => {
+  res.sendFile(path.join(__dirname + "./public/stats.html"));
+});
 
 app.listen(PORT, () => {
     console.log(`App is running on ${PORT}!`);
