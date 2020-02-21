@@ -22,22 +22,32 @@ mongoose.connect("mongodb://localhost/workout", { useNewUrlParser: true, useFind
 
 // create workout (app.post)
 app.post("/api/workouts", ({body}, res) => {
-  db.create(body)
+  db.Workout.create(body)
   .then(workouts => res.json(workouts))
   }); 
 
 // get workouts in range (app.get)
 app.get("/api/workouts/range", (req, res) =>{
-  db.find()
+  db.Workout.find()
   .then(workouts => res.json(workouts))
   .catch(err=> res.json(err))
 });
 
 
 // add exercise (app.put)
+app.put("/api/workouts/:id", (req, res) => {
+  db.Workout.findByIdAndUpdate(req.params.id, { $push: {exercises: req.body} })
+  .then(workouts => res.json(workouts))
+  .catch(err=> res.json(err))
+})
 
 
-// get last workout (app.get)
+// get last workout (app.get)***
+app.get("/api/workouts", (req, res) => {
+  db.Workout.find()
+  .then(workouts => res.json(workouts))
+  .catch(err=> res.json(err))
+});
 
 
 // HTML ROUTES
