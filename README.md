@@ -1,7 +1,6 @@
 # fitness_tracker
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/53705501/75037615-99245c00-5482-11ea-9f0f-5ffa73e688a8.gif)
-
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/53705501/75083526-3add9480-54e7-11ea-9650-33bdd4ba5d5b.gif)
 
 # Description
 Fitness Tracker is an easy way to log and view daily workouts so that you can reach your fitness goals quicker.
